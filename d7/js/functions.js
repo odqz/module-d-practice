@@ -12,6 +12,24 @@
 
 //isPalindrome - code here ↓
 
+function isPalindrome(str) {
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('')
+
+  let arr = str.toLowerCase().split('')
+  
+  let forwardArr = []
+  let reveresdArr = []
+
+  for (let i = 0; i < arr.length; i++) {
+    if (alphabet.includes(arr[i])) {
+      forwardArr[i] = arr[i]
+      reveresdArr[(arr.length - 1) - i] = arr[i]
+    }
+  }
+
+  return forwardArr.join('') == reveresdArr.join('')
+}
+
 /**
  * sum(a, b) → number
  * Add two values and return a number. Accept numeric strings and negatives.
@@ -19,6 +37,10 @@
  */
 
 //sum - code here ↓
+
+function sum(a, b) {
+  return Number(a) + Number(b)
+}
 
 /**
  * isEven(n) → Boolean
@@ -28,6 +50,10 @@
 
 //isEven - code here ↓
 
+function isEven(n) {
+  return n % 2 == 0
+}
+
 /**
  * initials(fullName) → string
  * Return uppercase initials with dots. Ignore extra spaces.
@@ -36,6 +62,18 @@
 
 //initials - code here ↓
 
+function initials(fullName) {
+  let names = fullName.split(' ')
+
+  let initals = []
+
+  for (let i = 0; i < names.length; i++) {
+    initals[i] = names[i][0]
+  }
+  
+  return `${initals.join('.')}.`
+}
+
 /**
  * reverseWords(sentence) → string
  * Return the sentence with words in reverse order, trimming extra spaces.
@@ -43,6 +81,24 @@
  */
 
 //reverseWords - code here ↓
+
+function reverseWords(sentence) {
+  let split = sentence.split(' ')
+
+  let words = []
+  let reversed = []
+
+  for (let i = 0; i < split.length; i++) {
+    if (split[i] != '')
+      words.push(split[i])
+  }
+
+  for (let i = 0; i < words.length; i++) {
+    reversed[(words.length - 1) - i] = words[i]
+  }
+
+  return reversed.join(' ')
+}
 
 // DO NOT MODIFY BELOW THIS LINE - It's make functions available to the test harness
 // ----------------------------------------------------------------------------------
